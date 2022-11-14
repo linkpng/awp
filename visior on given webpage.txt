@@ -1,0 +1,45 @@
+
+global file
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.SessionState;
+
+namespace copyright
+{
+    public class Global : System.Web.HttpApplication
+    {
+
+        protected void Application_Start(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Session_Start(object sender, EventArgs e)
+        {
+            Application.Lock();
+            Application["Usercount"] = Convert.ToInt32(Application["usercount"]) + 1;
+            Application.UnLock();
+        }
+
+
+aspx.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace copyright
+{
+    public partial class WebForm2 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Response.Write(Application["usercount"].ToString());
+        }
+    }
+}
