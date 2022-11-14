@@ -1,0 +1,84 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace day
+{
+    public partial class WebForm3 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+           Label1.Text= fib(Convert.ToInt32(TextBox1.Text));
+        }
+            
+            public string fib(int limit)
+            {
+            int x = 0;
+            int y = 1;
+            int z;
+            string st = x + "," + y + ",";
+            for (int i = 2; i < 100; i++)
+            {
+                z = x + y;
+                x = y;
+                y = z;
+                if (z > limit)
+                {
+                    break;
+                }
+                st += z + ",";
+
+            }
+            return st;
+        }
+        public string prime(int num)
+        {
+            for( int i = 2; i < num; i++ )
+            {
+                if(num%i==0)
+                {
+                    return "no";
+                }
+            }
+            return "yes";
+        }
+        public string vow(string c)
+        {
+            if("aeiou".Contains(c))
+            {
+                return "vow";
+            }
+            else
+            {
+                return "no vow";
+            }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+          Label1.Text=  prime(Convert.ToInt32(TextBox1.Text));
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Label1.Text = vow(TextBox1.Text);
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            Label1.Text = "";
+            for(int i = TextBox1.Text.Length -1; i>-1 ;i--)
+            {
+                Label1.Text += TextBox1.Text[i];
+            }
+        }
+    }
+}
