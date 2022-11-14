@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace all
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DropDownList1.SelectedValue == "1")
+            {
+                Label1.Text = factorial(Convert.ToInt32(TextBox1.Text));
+            }
+            else if (DropDownList1.SelectedValue == "2")
+            {
+                Label1.Text = RsToUsd(Convert.ToInt32(TextBox1.Text));
+            }
+            else if (DropDownList1.SelectedValue == "3")
+            {
+                Label1.Text = Cube(Convert.ToInt32(TextBox1.Text));
+            }
+            else if (DropDownList1.SelectedValue == "4")
+            {
+                Label1.Text = fib(Convert.ToInt32(TextBox1.Text));
+            }
+        }
+        public string factorial(int num)
+        {
+            int fact = 1;
+            for(int i =1; i <=num; i++)
+            {
+                fact = fact * 1;
+            }
+            return fact.ToString();
+        }
+        public string RsToUsd(int num)
+        {
+            return(num / 70).ToString();
+        }
+        public string Cube(int num)
+        {
+            return (num * num * num).ToString();
+        }
+        public string fib(int range)
+        {
+            string fiser = "";
+            int a = 0;
+            int b = 1;
+            int c;
+            fiser = a + "," + b + ",";
+            for(int i =2; i < range; i++)
+            {
+                c = a + b;
+                fiser += c + ",";
+                a = b;
+                b = c;
+            }
+            return fiser;
+
+        }
+        }
+    }
+}
