@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace one
+{
+    public partial class WebForm2 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            enginpart1 e1 = new engin();
+           Response.Write ( e1.pipe());
+            enginpart2 e2 = new engin();
+            Response.Write( e2.gear());
+           // engin en = new engin();
+            //en.gear();
+            //en.pipe();
+        }
+    }
+    class engin : enginpart1 , enginpart2
+    {
+        public string pipe()
+        {
+            return "pipe";
+        }
+       public string gear()
+        {
+            return "gear";
+        }
+    }
+    interface enginpart1
+    {
+        string pipe();
+    }
+    interface enginpart2
+    {
+        string gear();
+    }
+}
