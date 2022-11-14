@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace day
+{
+    public partial class WebForm2 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string st = TextBox1.Text;
+            Response.Write(st.ToUpper() + "<br>");
+            Response.Write(st.ToLower() + "<br>");
+            Response.Write(st.Substring(0,5) + "<br>");
+            Response.Write(st.StartsWith("hel") + "<br>");
+            Response.Write(st.IndexOf("llo") + "<br>");
+            Response.Write(st.Insert(1,"x") + "<br>");
+            Response.Write(st.Split(' ')[0]+ "<br>");
+        }
+    }
+}
