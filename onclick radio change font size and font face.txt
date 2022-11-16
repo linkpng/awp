@@ -18,5 +18,6 @@ namespace one
         {
             Label1.Font.Name = ((RadioButton)sender).Text;
         }
+        Label1.Font.Size = Convert.ToInt32(((RadioButton)sender).Text);
     }
 }
