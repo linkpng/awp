@@ -1,0 +1,39 @@
+XML code
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="XSLTFile1.xslt"></xml:stylesheet?>
+<students>
+	<student>
+		<rollno>1</rollno>
+		<sname>vedant</sname>
+	</student>
+	<student>
+		<rollno>2</rollno>
+		<sname>jack</sname>
+	</student>
+	<student>
+		<rollno>3</rollno>
+		<sname>jasmin</sname>
+	</student>
+</students>
+
+XSLTFile
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:template match="/">
+		<html>		<head> </head>
+			<body>
+				<xsl:for-each select="students/student">
+					<h1>
+						<xsl:value-of select="sname"/>
+					</h1>
+					<p>
+						<xsl:value-of select="rollno"/>
+					</p>
+					<hr></hr>
+				</xsl:for-each>
+			</body>
+		</html>
+
+
+	</xsl:template>
+</xsl:stylesheet>
