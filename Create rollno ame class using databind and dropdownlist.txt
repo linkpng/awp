@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+namespace WebApplication2
+{
+    public partial class WebForm2 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            DataSet studs = new DataSet();
+            studs.Tables.Add(new DataTable("student"));
+            studs.Tables["student"].Columns.Add(new DataColumn("rollno"));
+            studs.Tables["student"].Columns.Add(new DataColumn("name"));
+            studs.Tables["student"].Columns.Add(new DataColumn("class"));
+            studs.Tables["student"].Columns.Add(new DataColumn("phone"));
+            studs.Tables["student"].Columns.Add(new DataColumn("email"));
+
+            DataRow dr = studs.Tables["student"].NewRow();
+            dr["rollno"] = "1";
+            dr[1] = "sam";
+            dr[2] = "it";
+            dr[3] = "12345678";
+            dr[4] = "asddfffff";
+            studs.Tables["student"].Rows.Add(dr);
+
+            dr = studs.Tables["student"].NewRow();
+            dr["rollno"] = "1";
+            dr[1] = "tam";
+            dr[2] = "it";
+            dr[3] = "12345678";
+            dr[4] = "asddfffff";
+            studs.Tables["student"].Rows.Add(dr);
+
+            GridView1.DataSource = studs.Tables["student"];
+            GridView1.DataBind();
+
+            DropDownList1.DataSource = studs.Tables["student"];
+            DropDownList1.DataTextField = "name";
+            DropDownList1.DataValueField = "rollno";
+            DropDownList1.DataBind();
+        }
+    }
+}
